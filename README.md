@@ -90,11 +90,11 @@ rastreo-laravel/
 
 1. Clonar el repositorio:
 ```bash
-git clone https://github.com/tuusuario/rastreo-laravel.git
+git clone https://github.com/isairey/SisRastreoMa.git
 ```
 Acceder al proyecto:
 ```
-cd rastreo-laravel
+cd SisRastreoMa
 ```
 Instalar dependencias:
 ```
