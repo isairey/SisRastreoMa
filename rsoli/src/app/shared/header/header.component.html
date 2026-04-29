@@ -1,0 +1,12 @@
+<p-menubar [model]="items">
+    <ng-template pTemplate="start">
+        <div class="logo-header">
+            <img routerLink="shared/slider" src="./assets/logo/logoRsoli.png" class="imgzoom " height=45>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="end">
+        <!-- <i class="pi pi-align-justify imgzoom" style="font-size: 2rem;margin-left: 20px; "></i>    -->
+        <app-sidebar></app-sidebar>
+        <!-- <app-iniciar-sesion></app-iniciar-sesion> -->
+    </ng-template>
+</p-menubar>

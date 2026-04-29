@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^kolosu.com$ [OR]
+  RewriteCond %{HTTP_HOST} ^www.kolosu.com$
+  RewriteRule (.*)$ https://www.kolosu.com/public/kolosu/$1 [R=301,L]
+</IfModule>

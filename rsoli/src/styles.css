@@ -1,0 +1,181 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Open Sans', sans-serif;
+  }
+  h1 {
+    font-size: 27px !important;
+    color: #fff;
+    font-weight: 800 !important;
+  }
+  
+  h2 {
+    font-size: 20px !important;
+    color:#707070 !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    
+  }
+  .formulario-servicio{
+    border: 20px;
+}
+  h3 {
+  /*   
+    color:#fff !important; */
+    font-size: 20px !important;
+    font-weight: 545 !important; 
+    padding-top: 15px !important;
+    
+  }
+  
+  h4 {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 545 !important; 
+    color: #000;
+  }
+  
+  h5 {
+    font-size: 28px;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  h6 {
+    font-size: 18px;
+    color: #000;
+    
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 40px;
+  }
+  p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    color:#000;
+  }
+    /* arriba   izquierda   abajo    derecha*/
+  .logo-header {
+    padding: 4px 20px 0px 3px;
+}
+.fondo_componente{
+    background-color: #fff;
+    margin: 0 auto;
+    /* margin: 10px; */
+    padding-bottom: 60px;
+}
+.titulo_componente{
+    text-align: center;
+    color: #616161;
+    text-transform: uppercase;
+    padding-top: 40px;
+    padding-bottom: 1px;
+    /* text-shadow: -4px 1px 0 #dbdbdb; */
+    font-weight: bold;
+    /* font-size: 60px; */
+    font-size: calc(1em + 1vw);
+}
+.titulo-principal{
+    margin-top: 25px;
+}
+.p-menubar{
+    background: #ffffff !important;
+    border-top: 4px solid #007bff !important;
+    border-bottom: #ffffff !important;
+}
+.imgzoom{
+    transition: transform .2s;
+    transition-property: transform;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+.imgzoom:hover {
+    transform: scale(1.1);
+}
+
+/* Titulo */
+
+
+.p-sidebar-full{
+    background: #EEF0F8 !important;
+}
+/* input */
+.p-inputtext {
+    margin: 0 !important;
+    width: 100% !important;
+}
+.p-password {
+    position: relative !important;
+    display: block !important;
+}
+
+/* .btn_inicio_sesion{
+    width: 100px !important;
+} */
+ /* @media only screen and (max-width: 738px) {
+    .btn_inicio_sesion {
+        width: 140px !important;
+    }
+    
+} 
+@media only screen and (max-width: 1246px) and (min-width: 739px)  {
+    .btn_inicio_sesion {
+        width: 140px !important;
+    }
+}  */
+
+
+/* side bar derecha */
+.p-sidebar-right{
+    width: 290px !important;
+    height: 290px !important;
+}
+
+.p-sidebar-left{
+    /* width: 290px !important; el width se esta usando en su propia etiqueta html*/
+    padding: 20px !important;
+}
+.p-sidebar-content {
+    height: 100% !important;
+}
+/* menu arbol */
+.p-tree {
+    border: 0px solid #dee2e6 !important;
+    background: #ffffff;
+    color: #495057;
+    padding: 0px !important;
+    border-radius: 3px;
+    
+}
+.p-tree-filter {
+    width: 100% !important;
+    height: 40px !important;
+    border-radius: 20px !important;
+}
+.p-sidebar .p-sidebar-header {
+     padding: 0px !important; 
+}
+
+.p-tree .p-tree-filter-container {
+    margin-bottom: 1.5rem !important;
+}
+
+
+
+
+.p-calendar * {
+    width: 100% !important; 
+    top: 0px !important;
+    text-align: center !important;
+
+}
+
+@media screen and (max-width: 769px){
+    .p-datepicker table th, .p-datepicker table td {
+        width: 0px !important; 
+    }
+}

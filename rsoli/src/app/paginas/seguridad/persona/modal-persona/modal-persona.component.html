@@ -1,0 +1,96 @@
+    <div class="modal-header" style="border-top: 4px solid #007bff !important;">
+        <h4 class="modal-title pull-left">{{titulo}}</h4>
+
+        <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" (click)="bsModalRef.hide()"></button>
+    </div>
+
+    <form [formGroup]="form_persona" (submit)="GuardarPersona()">
+        <div style="padding:20px 40px 20px 40px;" class="modal-body">
+
+            <div class="row">
+                 <label style="margin: 0px;padding: 0px;">
+                    <span style="color: red;" *ngIf="form_persona.controls['nombre'].errors" >*</span>
+                    <span style="color: green;" *ngIf="!form_persona.controls['nombre'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                    Nombre
+                </label>
+                <input type="text" pInputText formControlName="nombre"> 
+                <span class=" form-error text-danger small" *ngIf="form_persona.controls['nombre'].errors?.maxlength">
+                    Máximo caracteres permitidos 20
+                </span>
+            </div>
+
+            <div class="row">
+                <label style="margin: 0px;padding: 0px;">
+                    <span style="color: red;" *ngIf="form_persona.controls['apellido_paterno'].errors" >*</span>
+                    <span style="color: green;" *ngIf="!form_persona.controls['apellido_paterno'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                    Apellido paterno
+                </label>
+                <input type="text" pInputText formControlName="apellido_paterno"> 
+                <span class=" form-error text-danger small" *ngIf="form_persona.controls['apellido_paterno'].errors?.maxlength">
+                    Máximo caracteres permitidos 20
+                </span>
+            </div>
+ 
+            <div class="row">
+                <label style="margin: 0px;padding: 0px;">
+                    <span style="color: red;" *ngIf="form_persona.controls['apellido_materno'].errors" >*</span>
+                    <span style="color: green;" *ngIf="!form_persona.controls['apellido_materno'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                    Apellido materno
+                </label>
+                <input type="text" pInputText formControlName="apellido_materno"> 
+                <span class=" form-error text-danger small" *ngIf="form_persona.controls['apellido_materno'].errors?.maxlength">
+                    Máximo caracteres permitidos 20
+                </span>
+            </div>
+            <div class="row">
+                <label style="margin: 0px;padding: 0px;">
+                    <span style="color: red;" *ngIf="form_persona.controls['celular'].errors" >*</span>
+                    <span style="color: green;" *ngIf="!form_persona.controls['celular'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                    Celular
+                </label>
+                <input type="text" pInputText formControlName="celular">   
+                <span class=" form-error text-danger small" *ngIf="form_persona.controls['celular'].hasError('maxlength')">
+                    Máximo caracteres permitidos 10
+                </span> 
+                <span class=" form-error text-danger small" *ngIf="form_persona.controls['celular'].hasError('minLength')">
+                    Mínimo caracteres permitidos 8
+                </span> 
+                <span class=" form-error text-danger small" *ngIf="form_persona.controls['celular'].errors?.pattern">
+                    Solo se permite números
+                </span> 
+            </div>
+            <div class="row">
+                <label style="margin: 0px;padding: 0px;">
+                    <span style="color: red;" *ngIf="form_persona.controls['telefono'].errors" >*</span>
+                    <span style="color: green;" *ngIf="!form_persona.controls['telefono'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                    Telefono
+                </label>
+                <input type="text" pInputText formControlName="telefono"> 
+                <span class=" form-error text-danger small" *ngIf="form_persona.controls['telefono'].errors?.maxlength">
+                    Máximo caracteres permitidos 10
+                </span> 
+                <span class=" form-error text-danger small" *ngIf="form_persona.controls['telefono'].errors?.pattern">
+                    Solo se permite números
+                </span> 
+            </div>
+            <div class="row">
+                <label style="margin: 0px;padding: 0px;">
+                    <span style="color: red;" *ngIf="form_persona.controls['ci'].errors" >*</span>
+                    <span style="color: green;" *ngIf="!form_persona.controls['ci'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                    C.I.
+                </label>
+                <input type="text" pInputText formControlName="ci"> 
+                <span class=" form-error text-danger small" *ngIf="form_persona.controls['ci'].errors?.maxlength">
+                    Máximo caracteres permitidos 15
+                </span> 
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div style="padding-left: 2px;">
+                <button pButton pRipple type="submit" label="Guardar" class="p-button-raised" [disabled]="form_persona.invalid" ></button>
+            </div>
+            <div>
+                <button pButton pRipple type="button" label="Cancelar" class="p-button-raised p-button-danger" (click)="bsModalRef.hide()"></button>
+            </div>
+        </div>
+    </form>

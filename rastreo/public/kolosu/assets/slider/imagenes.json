@@ -1,0 +1,22 @@
+{
+    "data":[
+        {
+            "previewImageSrc": "assets/slider/ras1.png",
+            "thumbnailImageSrc": "assets/slider/ras1.png",
+            "alt": "Description for Image 1",
+            "title": "Title 1"
+        },
+        {
+            "previewImageSrc": "assets/slider/ras2.png",
+            "thumbnailImageSrc": "assets/slider/ras2.png",
+            "alt": "Description for Image 14",
+            "title": "Title 14"
+        },
+        {
+            "previewImageSrc": "assets/slider/ras3.png",
+            "thumbnailImageSrc": "assets/slider/ras3.png",
+            "alt": "Description for Image 15",
+            "title": "Title 15"
+        }
+    ]
+}

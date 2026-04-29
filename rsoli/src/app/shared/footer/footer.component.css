@@ -1,0 +1,90 @@
+.resumen-servicio{
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.resumen-servicio img{
+  width: 100px; 
+  height: 100px;
+}
+.texto-icono-slider{
+  padding: 0px 20px 50px 20px;
+}
+.titulo-icono-slider{
+  padding-top: 15px;
+  font-weight: bold;
+}
+.titulo-icono-slider h2{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+
+
+
+
+
+
+.footer{
+  background-color: #016CBA;
+  color: #fff;
+}
+.logo-footer{
+  width: 100%;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 25px;
+}
+
+.box_footer {
+  display: flex;
+  /*para que los elementos se pongan uno ensima de otro*/
+  flex-direction: column;
+  padding: 10px 20px 20px 20px;
+  
+}
+.box_footer p{
+  color: #fff;
+}
+.titulo-footer{
+  font-size: 16px !important;
+  color: #fff;
+}
+.subtitulo-footer{
+  font-weight: 700;
+}
+.box_footer a {
+  margin-bottom: 3px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline;
+}
+.box_footer a:hover {
+  color: rgb(219, 219, 219);
+}
+.img-redsocial{
+  margin: 2px;
+}
+.box-footer a i.fab {
+  display: inline-block;
+  box-shadow: 0px 0px 2px #fff;
+}
+.footer2{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+@media only screen and (max-width: 550px) {
+  .footer2{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .resumen-servicio{
+    padding: 12px;
+  }
+}
+
+.hola{
+  background-color: green;
+  padding: 10px;
+}

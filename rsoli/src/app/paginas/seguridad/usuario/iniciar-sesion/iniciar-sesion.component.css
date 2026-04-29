@@ -1,0 +1,38 @@
+
+@media only screen and (max-width: 509px) and (min-width: 1px)  {
+    .contenedor_login {
+      width: 100% !important;
+      margin: 0 auto !important;
+    }   
+    .contenedor_login2 {
+        margin: 40px !important;
+      }
+  }
+  @media only screen and (max-width: 739px) and (min-width: 510px)  {
+    .contenedor_login {
+      width: 80% !important;
+      margin: 0 auto !important;
+    }   
+    .contenedor_login2 {
+        margin: 70px !important;
+      }
+  }
+  @media only screen and (max-width: 1181px) and (min-width: 739px)  {
+    .contenedor_login {
+      width: 50% !important;
+      margin: 0 auto !important;
+    }   
+    .contenedor_login2 {
+        margin: 70px !important;
+      }
+  }
+  @media only screen and (max-width: 1246px) and (min-width: 1182px)  {
+    .contenedor_login {
+      width: 50% !important;
+      margin: 0 auto !important;
+    }   
+    .contenedor_login2 {
+        margin: 100px !important;
+      }
+  }
+

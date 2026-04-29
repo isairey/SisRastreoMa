@@ -1,0 +1,75 @@
+<p-toast></p-toast>
+<div class="fondo_componente"
+    style="padding: 20px; box-shadow: 0 2px 0px 0 rgb(0 0 0 / 12%), inset 0 -1px 0 0 #dadce0; ">
+    <div style="padding: 50px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="tarjeta-titulo"> Lista de departamentos </p>
+            </div>
+        </div>
+
+        <p-table #dt [value]="lista_departamentos" dataKey="id_rol" [rows]="10" [loading]="loading"
+            styleClass="p-datatable-lista_departamentos" [paginator]="true" [filterDelay]="0" [responsive]="true"
+            [globalFilterFields]="['nombre_departamento']" [rowHover]="true">
+
+            <ng-template pTemplate="caption">
+                <div class="row">
+                    <div class="col-lg-6" style="padding: 0px;margin: 0px;">
+                        <button [hidden]="sesion" pTooltip="Nuevo" tooltipPosition="top" type="button"
+                            class="btn IconoEfecto transparente" (click)="FormularioDepartamento(0)">
+                            <i style="color: #3699FF;" class="pi pi-file-o imgzoom"></i>
+                        </button>
+
+                        <button pTooltip="Editar" tooltipPosition="top" type="button"
+                            class="btn IconoEfecto transparente" (click)="FormularioDepartamento(-1)">
+                            <i class="far fa-edit imgzoom" style="color: #3CA934 "></i>
+                        </button>
+                        <button [hidden]="sesion" pTooltip="Eliminar" tooltipPosition="top" type="button"
+                            class="btn IconoEfecto transparente" (click)="EliminarDepartamento()">
+                            <i class="far fa-trash-alt bg imgzoom" style="color: #F64E60;"></i>
+                        </button>
+                    </div>
+                    <div class="col-lg-6 d-flex justify-content-end">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input style="border-radius: 15px; height: 100%;height: 100%;" pInputText type="text"
+                                (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Buscar" />
+                        </span>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nro</th>
+                    <th pSortableColumn="departamento">Nombre<p-sortIcon field="nombre_departamento"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="departamento">Usuario reg<p-sortIcon field="id_usuario_reg"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="departamento">Fecha reg<p-sortIcon field="fecha_reg"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="departamento">Fecha mod<p-sortIcon field="fecha_mod"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="departamento">Usuario mod<p-sortIcon field="id_usuario_mod"></p-sortIcon>
+                    </th>
+                    <!-- <th pSortableColumn="foto">Foto<p-sortIcon field="foto"></p-sortIcon></th> -->
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-lista_departamentos let-rowIndex="rowIndex">
+                <tr (click)="seleccionarDepartamento(lista_departamentos)">
+                    <td scope="persw">{{rowIndex+1}}</td>
+                    <td>{{lista_departamentos.nombre_departamento}}</td>
+                    <td>{{lista_departamentos.id_usuario_reg}}</td>
+                    <td>{{lista_departamentos.fecha_reg}}</td>
+                    <td>{{lista_departamentos.fecha_mod}}</td>
+                    <td>{{lista_departamentos.id_usuario_mod}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="6">No hay datos para mostrar </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

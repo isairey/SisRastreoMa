@@ -1,0 +1,78 @@
+.margen1{
+  background-color: rgb(255, 255, 255);
+  margin: 10px;
+  height: 700px;
+}
+.margen2{
+  background-color: rgb(255, 255, 255);
+  margin: 10px;
+  height: 700px;
+}
+.margen-mapa{
+  padding:10px !important;
+}
+.margen-filtros{
+  padding:30px !important;
+  border-left: 4px solid #007bff !important;
+}
+#map1 {
+  height: 100%;
+  padding: 0%;
+  width: 100%;
+  z-index: 0;
+}
+@media only screen and (max-width: 738px) {
+  .margen1{
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    height: 600px;
+  }
+  .margen2{
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    height: 370px;
+  }
+} 
+@media only screen and (max-width: 1246px) and (min-width: 739px)  {
+  .margen{
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    height: 700px;
+  }
+}
+
+
+
+.my-float{
+	margin-top:98px;
+  margin-left: 31px;
+  position: absolute;
+  z-index: 1000;
+
+  border-left: 2px solid rgba(0,0,0,0.2);
+  border-right: 2px solid rgba(0,0,0,0.2);
+  border-top: 2px solid rgba(0,0,0,0.2) !important;
+  border-bottom: 2px solid rgba(0,0,0,0.2) !important;
+  border-radius: 4px;
+
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.my-float :hover {
+  color: #999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

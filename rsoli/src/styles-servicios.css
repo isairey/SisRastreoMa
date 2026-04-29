@@ -1,0 +1,135 @@
+ 
+/* principal seccion de servicio */
+.servicio{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.servicio-contenido{
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 40px;
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 6px solid #85c0ff;
+    
+}
+.servicio-contenido2{
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 40px;
+    text-align: left;
+    background-color: #ffffff;
+    /* border-right: 6px solid #85c0ff; */
+    
+}
+.servicio-contenido p{
+    text-align: left;
+}
+
+.texto-responsivo{
+    font-size: calc(1em + 1vw);
+}
+.prueba{
+    display: flex;
+    align-items: center;
+}
+/* formulario solicitar servicio */
+.formulario-servicio{
+    width: 100%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+}
+.formulario-servicio2{
+    width: 100%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 95px;
+}
+.form-title{
+    width: 100%;
+    background-color: #2196F3;
+    color: #fff;
+    display: flex;
+    padding: 30px 45px 30px 45px;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    text-transform: uppercase;
+}
+.form-contenido{
+    padding: 30px 45px 30px 45px;
+    border-radius:solid 2px rgb(241, 241, 241);
+}
+.form-contenido p{
+    text-align: center;
+    font-weight: 800;
+}
+  /* arriba   izquierda   abajo    derecha*/
+.form-input{
+    padding: 10px 16px 10px 16px;
+    border-radius: 15px;
+    margin: 10px 0px 0px 0px;
+    width: 100%;
+}
+.form-contenido a{
+    font-weight: 700 !important;
+    border-radius: 50px;
+    text-align: center;
+    background-color: #2196F3 !important;
+    border: 0px solid #2196F3!important;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px 10px 20px;
+    width: 100% !important;
+    
+}
+.form-contenido a:hover{
+    background-color: #379cf0 !important;
+    color: #fff;
+    
+}
+
+/* texto al lado del formulario */
+.solicitar-servicio-texto{
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+/* texto relleno de servicio */
+.servicio-relleno{
+    padding: 30px;
+}
+/* frase */
+.frase-content{
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 40px;
+    text-align: center;
+    background-color: #ffffff;
+    border-left: 6px solid #85c0ff;
+}
+.button{
+    font-weight: bold;
+    font-size: 1rem;
+    width: 30px;
+    color: red;
+}
+/* style="font-weight: bold;
+style="font-size: 1rem; width: 30px; font-weight: bold;" */
+.p-calendar {
+    display: inherit !important; 
+  }
+.p-multiselect {
+    /* display: inherit !important; */
+    width: 100% !important;
+}
+.p-dropdown{
+    width: 100% !important;
+}
+

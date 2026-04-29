@@ -1,0 +1,130 @@
+<p-sidebar [(visible)]="visibleSidebar1" [style]="{width:'340px'}" [modal]="false">
+    <h5>FILTROS</h5>
+    <br>
+    <div>
+            Tipo de monitoreo
+            <br>
+            <p-dropdown [options]="tipo_monitoreo" [(ngModel)]="tipo_monitoreo_seleccionado" optionLabel="nombre"
+            [filter]="false" filterBy="nombre" [showClear]="true" placeholder="Seleccionar" (onChange)="monitoreo_seleccionado($event)" >
+                <ng-template pTemplate="selectedItem">
+                    <div class="country-item country-item-value" *ngIf="tipo_monitoreo_seleccionado">
+                        <div>{{tipo_monitoreo_seleccionado.nombre}}</div>
+                    </div>
+                </ng-template>
+                <ng-template let-country pTemplate="item">
+                    <div class="country-item">
+                        <div>{{country.nombre}}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+    </div>
+    
+    <div  style="margin-top: 9px;">
+            Vehiculo
+            <br>
+            <p-multiSelect [selectionLimit]="limite_seleccion_vehiculos" [options]="vehiculo" [(ngModel)]="vehiculo_seleccionado" defaultLabel="Seleccionar"
+            optionLabel="placa">
+        </p-multiSelect>
+    </div>
+    <div  [hidden]="bandera_tipo_monitoreo" style="margin-top: 10px;">
+            Fecha
+            <br>
+            <p-calendar    [(ngModel)]="fecha_ratreo" dateFormat="dd/mm/yy" inputId="spanish"></p-calendar>
+    </div>
+    <div  [hidden]="bandera_tipo_monitoreo" style="margin-top: 10px;">
+            Hora inicio
+            <br>
+            <p-calendar  [(ngModel)]="hora_inicio" [timeOnly]="true" inputId="timeonly"></p-calendar>
+    </div>
+    
+    <div  [hidden]="bandera_tipo_monitoreo" style="margin-top: 10px;">
+            Hora fin
+            <br>
+            <p-calendar [(ngModel)]="hora_fin"  [timeOnly]="true" inputId="timeonly"></p-calendar>
+    </div>
+    <br>
+    <button pButton pRipple type="button" (click)="aplicar_filtros()" label="Aplicar filtros" class="p-button-raised"></button>
+</p-sidebar>
+
+
+
+<div  style="background-color: #fff;width: 33px;height: 33px; text-align: center;  display: flex;
+align-items: center;
+justify-content: center;
+border-bottom: 1px solid #ccc;
+z-index: 2;" 
+class="my-float" (click)="visibleSidebar1 = true">
+
+    <i  class="pi pi-filter"></i>
+</div>
+
+<div class="row" style="padding:0;margin: 0;">
+    <!-- <div class="col-sm-12 col-md-3 col-lg-3" style="padding:0;margin: 0;">
+        <div class="margen-filtros margen1">
+            <h5>FILTROS</h5>
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                    Tipo de monitoreo
+                    <br>
+                    <p-dropdown [options]="tipo_monitoreo" [(ngModel)]="tipo_monitoreo_seleccionado" optionLabel="nombre"
+                    [filter]="false" filterBy="nombre" [showClear]="true" placeholder="Seleccionar" (onChange)="monitoreo_seleccionado($event)" >
+                        <ng-template pTemplate="selectedItem">
+                            <div class="country-item country-item-value" *ngIf="tipo_monitoreo_seleccionado">
+                                <div>{{tipo_monitoreo_seleccionado.nombre}}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-country pTemplate="item">
+                            <div class="country-item">
+                                <div>{{country.nombre}}</div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </div>
+            </div>
+            
+            <div class="row" style="margin-top: 9px;">
+                <div class="col-lg-12">
+                    Vehiculo
+                    <br>
+                    <p-multiSelect [selectionLimit]="limite_seleccion_vehiculos" [options]="vehiculo" [(ngModel)]="vehiculo_seleccionado" defaultLabel="Seleccionar"
+                    optionLabel="placa">
+                </p-multiSelect>
+                </div>
+            </div>
+            <div class="row" [hidden]="bandera_tipo_monitoreo" style="margin-top: 10px;">
+                <div class="col-lg-12">
+                    Fecha
+                    <br>
+                    <p-calendar  [(ngModel)]="fecha_ratreo" dateFormat="dd/mm/yy" inputId="spanish"></p-calendar>
+                </div>
+            </div>
+            <div class="row" [hidden]="bandera_tipo_monitoreo" style="margin-top: 10px;">
+                <div class="col-lg-12">
+                    Hora inicio
+                    <br>
+                    <p-calendar  [(ngModel)]="hora_inicio" [timeOnly]="true" inputId="timeonly"></p-calendar>
+                </div>
+            </div>
+            
+            <div class="row" [hidden]="bandera_tipo_monitoreo" style="margin-top: 10px;">
+                <div class="col-lg-12">
+                    Hora fin
+                    <br>
+                    <p-calendar [(ngModel)]="hora_fin" [timeOnly]="true" inputId="timeonly"></p-calendar>
+                </div>
+            </div>
+            <br>
+            <button pButton pRipple type="button" (click)="aplicar_filtros()" label="Aplicar filtros" class="p-button-raised"></button>
+        </div>
+    </div> -->
+    <div class="col-sm-12 col-md-12 col-lg-12" style="padding:0;margin: 0;">
+
+
+        <div class="margen-mapa margen2">
+           
+            <div id="map1"></div>
+        </div>
+    </div>
+</div>
+<p-toast></p-toast>

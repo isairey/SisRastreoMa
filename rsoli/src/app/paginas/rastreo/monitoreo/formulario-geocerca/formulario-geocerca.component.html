@@ -1,0 +1,94 @@
+<div  style="background-color: #fff;width: 33px;height: 33px; text-align: center;  display: flex;
+align-items: center;
+justify-content: center;
+border-bottom: 1px solid #ccc;
+z-index: 2;" 
+class="my-float" (click)="BorrarArea()"
+pTooltip="Borrar" tooltipPosition="right">
+
+    <i  class="pi pi-undo" ></i>
+
+</div>
+
+<div class="row" style="padding:0;margin: 0;">
+    <div class="col-sm-12 col-md-8 col-lg-8" style="padding:0;margin: 0;">
+        <div class="margen-mapa margen2"> 
+
+            <div id="mapgeo_area">
+               
+
+                <div leaflet style="height: 100%; margin: 0; padding: 0;"
+                leafletDraw
+                style="height: 100%;"
+                [leafletOptions]="options"
+                [leafletDrawOptions]="drawOptions"
+                [leafletDrawLocal]="drawLocal"
+                (leafletDrawCreated)="onDrawCreated($event)"
+                >
+
+                <!-- Add the drawnItems featureGroup to the map -->
+                <div [leafletLayer]="drawnItems"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-sm-12 col-md-4 col-lg-4" style="padding:0;margin: 0;">
+        <div class="margen-mapa margen2"> 
+            <form [formGroup]="form_geocerca" (submit)="GuardarGeocerca()">
+                <div style="padding:20px 40px 20px 40px;" >
+                    <div class="row" >
+                        <div class="col-lg-12" style="padding:0;margin: 0;">
+                            <p class="tarjeta-titulo"> {{titulo}} </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label style="margin: 0px;padding: 0px;">
+                            <span style="color: red;" *ngIf="form_geocerca.controls['nombre_geocerca'].errors" >*</span>
+                            <span style="color: green;" *ngIf="!form_geocerca.controls['nombre_geocerca'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                            Nombre
+                        </label>
+                        <input type="text" pInputText formControlName="nombre_geocerca"> 
+                        <span class=" form-error text-danger small" *ngIf="form_geocerca.controls['nombre_geocerca'].errors?.maxlength">
+                            Máximo caracteres permitidos 50
+                        </span>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label style="margin: 0px;padding: 0px;">
+                        <span style="color: red;" *ngIf="form_geocerca.controls['descripcion'].errors" >*</span>
+                        <span style="color: green;" *ngIf="!form_geocerca.controls['descripcion'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                        Descripcion
+                        </label>
+                        <textarea pInputTextarea formControlName="descripcion"></textarea>
+                
+                        <span class=" form-error text-danger small" *ngIf="form_geocerca.controls['descripcion'].errors?.maxlength">
+                            Máximo caracteres permitidos 100
+                        </span>
+                    </div>
+
+                     
+                    <input hidden  type="text" pInputText formControlName="area"> 
+                
+                    
+
+                    <br>
+                    <div class="row" >
+                        <div class="col-sm-12 col-md-12 col-lg-6" style="padding:0;margin: 0;padding-top: 8px;">
+                            <div style="padding-left: 4px;">
+                                <button pButton pRipple type="submit" style="width: 100%;text-align: center;" label="Guardar" class="p-button-raised" [disabled]="form_geocerca.invalid" ></button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6" style="padding:0;margin: 0;padding-top: 8px;">
+                            <div style="padding-left: 4px;">
+                                <button pButton pRipple type="button" style="width: 100%;text-align: center;" label="Cancelar" class="p-button-raised p-button-secondary" (click)="Volver()"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

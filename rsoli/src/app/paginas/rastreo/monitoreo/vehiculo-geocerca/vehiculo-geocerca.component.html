@@ -1,0 +1,56 @@
+<div class="modal-header" style="border-top: 4px solid #007bff !important;">
+    <h4 class="modal-title pull-left">{{titulo}}</h4>
+
+    <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" (click)="bsModalRef.hide()"></button>
+</div>
+
+<form [formGroup]="form_geocerca" (submit)="GuardarGeocerca()">
+    <div style="padding:20px 40px 20px 40px;" class="modal-body">
+        <div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <label style="margin: 0px;padding: 0px;">
+                        <span style="color: red;" *ngIf="form_geocerca.controls['lista_geocercas_seleccionados'].errors" >*</span>
+                        <span style="color: green;" *ngIf="!form_geocerca.controls['lista_geocercas_seleccionados'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                        Geocercas
+                    </label>
+                    <p-multiSelect [options]="lista_geocercas" formControlName="lista_geocercas_seleccionados" defaultLabel="Seleccionar" display="chip"
+                        optionLabel="nombre_geocerca">
+                    </p-multiSelect>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label style="margin: 0px;padding: 0px;">
+                        <span style="color: red;" *ngIf="form_geocerca.controls['lista_notificacion_seleccionados'].errors" >*</span>
+                        <span style="color: green;" *ngIf="!form_geocerca.controls['lista_notificacion_seleccionados'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                        Notificaciones
+                    </label>
+                    <p-multiSelect [options]="lista_notificacion" formControlName="lista_notificacion_seleccionados" defaultLabel="Seleccionar" display="chip"
+                        optionLabel="notificacion">
+                    </p-multiSelect>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div style="display: inline-flex;">
+                        <div style="padding-left: 2px;">
+                            <button pButton pRipple type="submit" label="Guardar" class="p-button-raised"  [disabled]="form_geocerca.invalid" ></button>
+                            <!-- <button pButton pRipple type="submit" label="Guardar" class="p-button-raised" [disabled]="form_geocerca.invalid" ></button> -->
+                        </div>
+                        <div style="width: 10px;"></div>
+                        <div>
+                            <button pButton pRipple type="button" label="Cancelar" class="p-button-raised p-button-danger" (click)="bsModalRef.hide()"></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

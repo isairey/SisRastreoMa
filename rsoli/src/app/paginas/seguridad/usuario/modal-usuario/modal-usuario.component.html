@@ -1,0 +1,126 @@
+<div class="modal-header" style="border-top: 4px solid #007bff !important;">
+    <h4 class="modal-title pull-left">{{titulo}}</h4>
+
+    <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" (click)="bsModalRef.hide()"></button>
+</div>
+
+<form [formGroup]="form_usuario" (submit)="GuardarUsuario()">
+    <div style="padding:20px 40px 20px 40px;" class="modal-body">
+        <div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label style="margin: 0px;padding: 0px;">
+                        <span style="color: red;" *ngIf="form_usuario.controls['usuario'].errors" >*</span>
+                        <span style="color: green;" *ngIf="!form_usuario.controls['usuario'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                        Nombre Usuario
+                    </label>
+                    <input type="text" pInputText formControlName="usuario" > 
+                    <span class=" form-error text-danger small" *ngIf="form_usuario.controls['usuario'].errors?.maxlength">
+                        Máximo caracteres permitidos 20
+                    </span>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-lg-12">
+                    <label style="margin: 0px;padding: 0px;">
+                        <span style="color: red;" *ngIf="form_usuario.controls['contrasena'].errors" >*</span>
+                        <span style="color: green;" *ngIf="!form_usuario.controls['contrasena'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                        Contraseña
+                    </label>
+                    <p-password formControlName="contrasena" [toggleMask]="true" [feedback]="false" ></p-password>
+                    <span class=" form-error text-danger small" *ngIf="form_usuario.controls['contrasena'].errors?.maxlength">
+                        Máximo caracteres permitidos 50
+                    </span>
+                    <span class=" form-error text-danger small" *ngIf="form_usuario.controls['contrasena'].errors?.minlength">
+                        Mínimo caracteres permitidos 8
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label style="margin: 0px;padding: 0px;">
+                        <span style="color: red;" *ngIf="form_usuario.controls['repetir_contrasena'].errors" >*</span>
+                        <span style="color: green;" *ngIf="!form_usuario.controls['repetir_contrasena'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                        Repetir contraseña
+                    </label>
+                    <p-password formControlName="repetir_contrasena" [toggleMask]="true" [feedback]="false" ></p-password>
+                    <span class=" form-error text-danger small" *ngIf="form_usuario.controls['repetir_contrasena'].errors?.maxlength">
+                        Máximo caracteres permitidos 50
+                    </span>
+                    <span class=" form-error text-danger small" *ngIf="form_usuario.controls['repetir_contrasena'].errors?.minlength">
+                        Mínimo caracteres permitidos 8
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label style="margin: 0px;padding: 0px;">
+                    <span style="color: red;" *ngIf="form_usuario.controls['email'].errors" >*</span>
+                    <span style="color: green;" *ngIf="!form_usuario.controls['email'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                    Correo
+                    </label>
+                    <input type="text" pInputText formControlName="email"> 
+                    <span class=" form-error text-danger small" *ngIf="form_usuario.controls['email'].errors?.maxlength">
+                        Máximo caracteres permitidos 50
+                    </span>
+                    <span class=" form-error text-danger small" *ngIf="form_usuario.controls['email'].errors?.email">
+                        Formato de correo incorrecto
+                    </span>
+                </div>
+            </div>
+            <div class="row" [hidden]="sesion">
+                <div class="col-lg-12">
+                    <label style="margin: 0px;padding: 0px;">
+                        <span style="color: red;" *ngIf="form_usuario.controls['lista_personas_seleccionados'].errors?.required" >*</span>
+                        <span style="color: green;" *ngIf="!form_usuario.controls['lista_personas_seleccionados'].errors?.required" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                        Persona
+                    </label>
+                    <p-dropdown [options]="lista_personas" formControlName="lista_personas_seleccionados" optionLabel="nombre" [filter]="true" filterBy="nombre,apellido_paterno,apellido_materno,ci"
+                        [showClear]="true"  [autoDisplayFirst]="false" >
+                        <ng-template let-lista_personas pTemplate="item">
+                            <div class="country-item">
+                                <div style="border-bottom: 1px solid #dee2e6;">
+                                    <span style="font-weight: bold;" *ngIf="form_usuario.controls['contrasena'].errors" >Nombre : </span> {{lista_personas.nombre}} <br/>
+                                    <span style="font-weight: bold;" *ngIf="form_usuario.controls['contrasena'].errors" >Ap. paterno : </span> {{lista_personas.apellido_paterno}} <br/>
+                                    <span style="font-weight: bold;" *ngIf="form_usuario.controls['contrasena'].errors" >Ap. materno : </span> {{lista_personas.apellido_materno}} <br/>
+                                    <span style="font-weight: bold;" *ngIf="form_usuario.controls['contrasena'].errors" >CI : </span> {{lista_personas.ci}} <br/>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </div>
+            </div>
+
+            <div class="row" [hidden]="sesion">
+                <div class="col-lg-12">
+                    <label style="margin: 0px;padding: 0px;">
+                        <span style="color: red;" *ngIf="form_usuario.controls['lista_roles_seleccionados'].errors" >*</span>
+                        <span style="color: green;" *ngIf="!form_usuario.controls['lista_roles_seleccionados'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                        Roles
+                    </label>
+                    <p-multiSelect [options]="lista_roles" formControlName="lista_roles_seleccionados" defaultLabel="Seleccionar" display="chip"
+                        optionLabel="nombre_rol">
+                    </p-multiSelect>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div style="display: inline-flex;">
+                        <div style="padding-left: 2px;">
+                            <button pButton pRipple type="submit" label="Guardar" class="p-button-raised"  [disabled]="form_usuario.invalid" ></button>
+                            <!-- <button pButton pRipple type="submit" label="Guardar" class="p-button-raised" [disabled]="form_usuario.invalid" ></button> -->
+                        </div>
+                        <div style="width: 10px;"></div>
+                        <div>
+                            <button pButton pRipple type="button" label="Cancelar" class="p-button-raised p-button-danger" (click)="bsModalRef.hide()"></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

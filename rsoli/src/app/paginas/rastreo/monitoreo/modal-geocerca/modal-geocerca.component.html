@@ -1,0 +1,44 @@
+<div class="modal-header" style="border-top: 4px solid #007bff !important;">
+    <h4 class="modal-title pull-left">{{titulo}}</h4>
+
+    <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" (click)="bsModalRef.hide()"></button>
+</div>
+
+<form [formGroup]="form_geocerca" (submit)="GuardarGeocerca()">
+    <div style="padding:20px 40px 20px 40px;" class="modal-body">
+
+        <div class="row">
+             <label style="margin: 0px;padding: 0px;">
+                <span style="color: red;" *ngIf="form_geocerca.controls['nombre_geocerca'].errors" >*</span>
+                <span style="color: green;" *ngIf="!form_geocerca.controls['nombre_geocerca'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+                Nombre
+            </label>
+            <input type="text" pInputText formControlName="nombre_geocerca"> 
+            <span class=" form-error text-danger small" *ngIf="form_geocerca.controls['nombre_geocerca'].errors?.maxlength">
+                Máximo caracteres permitidos 50
+            </span>
+        </div>
+        <div class="row">
+            <label style="margin: 0px;padding: 0px;">
+               <span style="color: red;" *ngIf="form_geocerca.controls['descripcion'].errors" >*</span>
+               <span style="color: green;" *ngIf="!form_geocerca.controls['descripcion'].errors" > <i style="width: 10px;" class="fas fa-check"></i></span>
+               Descripcion
+           </label>
+           <textarea pInputTextarea formControlName="descripcion"></textarea>
+
+           <span class=" form-error text-danger small" *ngIf="form_geocerca.controls['descripcion'].errors?.maxlength">
+               Máximo caracteres permitidos 100
+           </span>
+       </div>
+
+    </div>
+    <div class="modal-footer">
+        <div style="padding-left: 2px;">
+            <button pButton pRipple type="submit" label="Guardar" class="p-button-raised" [disabled]="form_geocerca.invalid" ></button>
+        </div>
+        <div>
+            <button pButton pRipple type="button" label="Cancelar" class="p-button-raised p-button-danger" (click)="bsModalRef.hide()"></button>
+        </div>
+    </div>
+</form>
+

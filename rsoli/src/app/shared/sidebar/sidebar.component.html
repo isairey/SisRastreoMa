@@ -1,0 +1,105 @@
+
+
+<!-- <i class="pi pi-align-justify imgzoom" (click)="AbrirSideBar()" style="font-size: 2rem;margin-left: 20px; "></i> -->
+
+<button  style="margin-left: 20px;margin-right: 10px;" pButton pRipple type="button" icon="pi pi-user"
+class="p-button-rounded p-button-info imgzoom"  (click)="AbrirSideBar()" ></button>
+
+
+<p-sidebar  [(visible)]="visible_iniciar_sesion" [modal]="false" [showCloseIcon]="false" [fullScreen]="true"  [baseZIndex]="10000">
+    <div style="background: #ffffff ; width: 30%;margin: 0 auto;" class="contenedor_login">
+        <div style="margin: 110px; " class="contenedor_login2">
+            <div>
+                
+                <br/>
+                <div style="text-align: center;margin-top: 20px;">
+                    <img routerLink="shared/slider" src="./assets/logo/logoRsoli.png" height="55" >
+                </div>
+                <br/>
+
+                <form [formGroup]="form" (submit)="IniciarSesion()">
+                    <h3  style="font-weight: normal; text-align: center;" >Inicio de sesión</h3>
+                    <span class="p-float-label mt-4">
+                        <input  type="text" pInputText formControlName="usuario"> 
+                        <label for="float-input">Correo</label>
+                        <span class="help-block form-error text-danger small" *ngIf="form.controls['usuario'].errors?.maxlength">
+                            Máximo caracteres permitidos 40
+                        </span>
+                    </span>
+
+                    
+                    <span class="p-float-label mt-4">
+                        <!-- <p-password placeholder="Contraseña" formControlName="password" [toggleMask]="true" [feedback]="false" ></p-password> -->
+                        <p-password placeholder="Contraseña" formControlName="password"  [feedback]="false" ></p-password>
+                        <span class="help-block form-error text-danger small" *ngIf="form.controls['password'].errors?.maxlength">
+                            Máximo caracteres permitidos 40
+                        </span>
+                    </span>
+                    <br/>
+                    <!-- <div class="d-flex bd-highlight mb-3"> -->
+                    <div>
+                         <div class="row">
+                            <div class="col-lg-6 " >
+                                <button pButton pRipple type="submit" style="width: 100%;margin-top: 3px;" [disabled]="form.invalid"  label="Aceptar"  ></button>
+                            </div>
+                            <div class="col-lg-6 ">
+                                <button pButton pRipple type="button" style="width: 100%;margin-top: 3px;"  label="Cancelar" (click)="CancelarSesion()" class="p-button-secondary"></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+                <br/><br/>
+            </div>
+        </div>
+    </div>
+</p-sidebar>
+
+
+
+<p-sidebar [style]="{width:'290px'}" [showCloseIcon]="false" [showCloseIcon]="true" [modal]="true"  [(visible)]="visibleSidebar1" [baseZIndex]="11">
+
+
+    <div class="row" style="margin-top: 0px;" >
+        <img routerLink="shared/slider" src="./assets/logo/logoRsoli.png" style="width:200px;" >  
+    </div>
+        
+
+    <div class="row">
+        <!-- <div class="col-lg-12  d-flex justify-content-center" >
+            <button  style="width: 70px;height: 70px;" pButton pRipple type="button" icon="pi pi-user"
+            class="p-button-rounded p-button-info " ></button>
+        </div> -->
+        <div class="col-lg-12" style="text-align: center; margin-top: 7px;font-size: 12px;">
+            {{persona_label}}
+        </div> 
+        <div class="col-lg-12" style="text-align: center; margin-top: 0px;color: rgb(115, 122, 128); font-size: 12px;">
+            {{correo_label}}
+        </div>
+     
+    </div>
+
+
+     <div class="row" style="text-align: right;padding-bottom: 5px;">
+        <div class="col-lg-12">
+            <i pTooltip="Expandir" tooltipPosition="top" class="pi  pi-arrow-circle-down imgzoom" (click)="expandAll()" style="font-size: 1rem;padding: 2px; color: #A7A8AC;"></i>
+            <i pTooltip="Colapsar" tooltipPosition="top" class="pi pi-arrow-circle-up imgzoom" (click)="collapseAll()" style="font-size: 1rem;padding: 0px;color: #A7A8AC;"></i>
+        </div>
+     </div>
+       
+  
+
+    <p-tree [filter]="true"  filterMode="strict"  [value]="files" selectionMode="single" [(selection)]="selectedFile"
+        (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)">
+    </p-tree>
+
+    <br>
+    <div class="row">
+        <div class="col-lg-12" style="text-align: center; margin-top: 10px;">
+            <button pButton type="button" (click)="CerrarSesion()" style="color: black;width: 100%;background: rgba(189, 188, 188, 0.489);border-color:rgb(241, 238, 238);;" label="Cerrar sesión"></button>
+        </div>
+    </div>
+    
+
+</p-sidebar>
+<p-toast></p-toast>
